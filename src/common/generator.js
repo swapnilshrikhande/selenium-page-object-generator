@@ -15,12 +15,15 @@ window.POG=(function() {
 
         if (value) {
             var selector = node.nodeName.toLowerCase();
+            selector     = selector ? selector.replace(/'/g, "\\'") : '';
+
             if (name === 'class') {
                 selector += '.' + value.split(/\s+/g).join('.');
             }
             else {
                 selector += '[' + name + '=\'' + value + '\']';
             }
+
             if (document.querySelectorAll(selector).length === 1) {
                 response = selector;
             }
