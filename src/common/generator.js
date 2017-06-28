@@ -14,13 +14,13 @@ window.POG=(function() {
         var value = node.getAttribute(name);
 
         if (value) {
+
             var selector = node.nodeName.toLowerCase();
-            selector     = selector ? selector.replace(/'/g, "\\'") : '';
+            value        = value ? value.replace(/'/g, "\\'") : '';
 
             if (name === 'class') {
                 selector += '.' + value.split(/\s+/g).join('.');
-            }
-            else {
+            } else {
                 selector += '[' + name + '=\'' + value + '\']';
             }
 
